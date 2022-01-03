@@ -1,0 +1,182 @@
+\section{Modelling The Second International Nurse Rostering Competition (2014)}
+
+In short, the scheduling problem presented in
+\cite{ceschia2019second} consists of assigning nurses to shifts in multiple consecutive planning periods.
+The competition was held in 2015, on the website the benchmarks and a solution validator are still available.
+
+%\subsection{The Second International Nurse Rostering Competition (INRC-II)}
+
+%- stage: one week that will be scheduled at a time
+%- scenario: global information that holds across all stages
+%- week data: specific data for a single week
+%- history: information that must be passed from the last scheduled week to the currently to be scheduled week
+%- the solver must produce an output file for each week, based on which the simulator will generate a new history file
+
+%- the one-stage problem describes the problem of assigning nurses to shift within one week
+%- nurses have multiple skills (head nurse, trainee, ...), but only one can apply in a single shift
+
+%Straightforward: Assignment of workers to shifts
+
+
+%!! Problem description
+%---
+%The components of this problem are the nurses (Agent) and shifts (TimedTask). 
+%Each assignment consists of one shift and one nurse.
+%Groups are used for role assignment and to determine whether a day is part of a weekend.
+%---------
+%\subsection{Example}
+%Example taken from test data from INRC2 website:
+
+This is an example for a scenario (global part of the problem description) from a test instance:
+\begin{verbatim}
+SCENARIO = n005w4
+
+WEEKS = 4
+
+SKILLS = 2
+HeadNurse
+Nurse
+
+SHIFT_TYPES = 3
+Early (2,5)
+Late (2,3)
+Night (4,5)
+
+FORBIDDEN_SHIFT_TYPES_SUCCESSIONS
+Early 0
+Late 1 Early
+Night 2 Early Late
+
+CONTRACTS = 2
+FullTime (15,22) (3,5) (2,3) 2 1
+PartTime (7,11) (3,5) (3,5) 2 1
+
+NURSES = 5
+Patrick FullTime 2 HeadNurse Nurse 
+Andrea FullTime 2 HeadNurse Nurse
+Stefaan PartTime 2 HeadNurse Nurse
+Sara PartTime 1 Nurse
+Nguyen FullTime 1 Nurse
+\end{verbatim}
+
+%------------------------
+
+Only one time unit is necessary: a counter of days since the start of the planning horizon.
+Create groups: HeadNurse, Nurse, Early, Late, Night, Saturday1, Sunday1, Saturday2, Sunday2, Saturday3, Sunday3, Saturday4, Sunday4
+Nurse can be used as an alias for Agent, Shift for TimedTask.
+
+\begin{minted}{cpp}
+using Nurse = Agent<std::string, std::string, std::string>;
+using Shift = TimedTask<std::string, std::string, std::string, int>;
+\end{minted}
+
+Create each nurse, add the appropriate groups for roles. When reading from a file, this can be done in a loop; here only examplary for a single nurse:
+\begin{minted}{cpp}
+Nurse patrick("Patrick");
+patrick.addGroup("HeadNurse");
+patrick.addGroup("Nurse");
+\end{minted}
+
+There is only a single type of assignment for this problem. Since the problem is to assign nurses \textit{to} shifts, each shift will be fixed in one assignment.
+\begin{minted}{cpp}
+class Shift : public Assignment {
+
+	Expression generate() override;
+	Agent nurse;
+	const TimedTask shift;
+	std::vector<Rule> requirements; 
+
+}; 
+\end{minted}
+
+Create a TimedTask for every role required for each shift. Add the appropriate groups for role requirements, shift type and day of the week.
+Add these requirements to all Shifts $s$: 
+\begin{minted}{cpp}
+s.Require(shift.inGroup(HeadNurse) IMPLIES nurse.inGroup(HeadNurse));
+s.Require(shift.inGroup(Nurse) IMPLIES nurse.inGroup(Nurse));
+\end{minted}
+
+
+Ideas to model the constraints as described in \cite{ceschia2019second} as rules:
+\begin{description}
+\item[H1. Single assignment per day]
+
+A1.Simultaneous(A2) IMPLIES A1.Nurse != A2.Nurse, or
+
+A1.Shift.StartTime == A2.Shift.StartTime IMPLIES A1.Nurse != A2.Nurse
+
+\item[H2. Under-staffing]
+This is already enforced by making required tasks non-optional.
+
+\item[H3. Illegal shift type successions]
+For every illegal combination (prec, succ):
+
+InGroup(A1.Shift, prec) AND InGroup(A2.Shift, succ) AND ImmediateSuccessor(A1.Shift, A2.Shift) IMPLIES A1.Nurse != A2.Nurse
+
+\item[H4. Missing required skill]
+Enforced by making required role tasks non-optional.
+
+\item[S1. Insufficient staffing for optimal coverage]
+Enforced by adding the appropriate weight (30) as penalty to optional shifts.
+
+\item[S2. Consecutive assignments]
+
+Define 
+
+SameType(A1, A2) := (A1.shift.inGroup(Early) AND A2.shift.inGroup(Early)) OR (A1.shift.inGroup(Late) AND A2.shift.inGroup(Late)) OR (A1.shift.inGroup(Night) AND A2.shift.inGroup(Night))
+
+MinConsecutive(A1.nurse == A2.nurse AND SameType(A1, A2)) >= MIN
+
+\item[S3. Consecutive days off]
+
+MaxConsecutive(A1.nurse == A2.nurse AND SameType(A1, A2)) <= MAX
+
+\item[S4. Preferences]
+
+\item[S5. Complete week-end]
+
+\item[S6. Total assignments (only evaluated at the end of the planning period)]
+
+\item[S7. Total working week-ends (only evaluated at the end of the planning period)]
+
+
+\end{description}
+
+ 
+
+%\subsubsection{Translation}
+
+%start with Scenario file: 
+%\begin{enumerate}
+%	\item Get scenario id for problem id
+	
+%	\item number of weeks and shifts: create for every task and every shift type a timedtask. Set shift type as group on the tasks.
+	
+%	\item Skills: determines the roles
+	
+%	\item For each shift type, a minimum and maximum number of consecutive assignments is given. These needs to be expressed as a constraint on every assignment 
+	
+%	\item For forbidden shift type successions: for every assignment and every nurse?? 
+	
+%	\item Contracts: define minimum and maximum number of assignments, consecutive work days, consecutive days off, maximum number of working weekends and complete weekends
+	
+%	\item Nurses: set contracts and skills. For each nurse, add an agent with the skills as roles. Contracts define additional constraints per nurse: 
+%	\begin{enumerate}
+%		\item Minimum number of assignments in planning horizon
+%		\item Maximum number of assignments in planning horizon
+%		\item Minimum number of consecutive working days
+%		\item Maximum number of consecutive working days
+%		\item Minimum number of consecutive days off
+%		\item Maximum number of consecutive days off
+%		\item Maximum number of working week-ends in the planning horizon
+%		\item Whether weekends need to be complete (either fully free or fully worked)
+%	\end{enumerate}
+	
+	
+%	- "min/max in time" can be count bits in cropped bitvector!
+	
+%\end{enumerate}
+
+%From Week Data: 
+
+

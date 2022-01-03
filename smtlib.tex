@@ -1,0 +1,79 @@
+
+\begin{minted}{cpp}
+	(declare-sort t[typeID] 0)
+\end{minted}
+
+\begin{minted}{cpp}
+	(declare-const c[componentID] t[typeID])
+\end{minted}
+
+SMT-LIB specifies a  
+\begin{minted}{cpp}
+	(assert (distinct c[componentID1] ... c[componentIDn]))
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(declare-fun a[assignmentID]s[slotID] )
+\end{minted}
+
+For a fixed component:
+\begin{minted}{cpp}
+	(assert (= a[assignmentID]s[slotID] c[componentID]))
+\end{minted}
+
+For a non-fixed component add for the components $c_{k_1},...,c_{k_n}$ of the slot type:
+\begin{minted}{cpp}
+	(or (= a[assignmentID]s[slotID] c[componentID1]) ... (= a[assignmentID]s[slotID] c[componentIDn]))
+\end{minted}
+
+
+
+\begin{minted}{cpp}
+	(or (= s_{a_i} c_{j_1}) ... (= s_{a_i} c_{j_k}))
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(= s_{a_{k_1}} ... s_{a_{k_n}})
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(or (= s_{a_i} c_{k_1}) ... (= s_{a_i} c_{k_n}))
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(or (= s_{a_i} c_{k_1}) ... (= s_{a_i} c_{k_n}))
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(not Condition)
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(and Condition1 ... ConditionN)
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(or Condition1 ... ConditionN)
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(=> Condition1 Condition2)
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(xor Condition1 Condition2)
+\end{minted}
+
+
+\begin{minted}{cpp}
+	(and (=> Condition1 Condition2) (=> Condition2 Condition1))
+\end{minted}

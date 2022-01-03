@@ -1,0 +1,44 @@
+\subsubsection{Components}
+\begin{description}
+\item[Classes]
+\item[Times]
+\item[Rooms]
+\item[Students]
+\end{description}
+
+\subsubsection{Assignments}
+
+
+\subsubsection{Rules}
+
+Constraints that are evaluated over pairs incur a penalty for every violated pair.
+
+\begin{description}
+\item[SameStart(Class, Class)]
+Classes must start on the same time slot
+Defined as:
+\begin{verbatim}
+SameStart(class1, class2) :=
+\end{verbatim}
+
+\item[SameTime(Class, Class)]
+
+
+\item[DifferentTime(Class, Class)]
+\item[SameDays(Class, Class)]
+\item[DifferentDays(Class, Class)]
+\item[SameWeeks(Class, Class)]
+\item[DifferentWeeks(Class, Class)]
+\item[SameRoom(Class, Class)]
+\item[DifferentRooms(Class, Class)]
+\item[Overlap(Class, Class)]
+\item[NotOverlap(Class, Class)]
+\item[SameAttendees(Class, Class)]
+\item[Precedence(Class, Class)]
+\item[WorkDay(S, Class, Class)]
+\item[MinGap(G, Class, Class)]
+\item[MaxDays(Days ...)]
+\item[MaxDayLoad(Slots ...)]
+\item[MaxBreaks(Breaks ...)]
+\item[MaxBlock(Blocks ...)]
+\end{description}

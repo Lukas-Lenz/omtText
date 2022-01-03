@@ -1,0 +1,21 @@
+\section{Problem}
+
+Let there be $k$ types of values, $n=(n_1, ..., n_k)$ values, which are assumed to be distinct and $m$ \textit{slots} which may be optional and associated with a penalty. 
+Each value and each slot are of exactly one type.
+A set of constraints may apply that either limit the set of possible solutions or impose a penalty on solutions violating them.
+The problem considered here consists of finding an assignment of a value to each slot so that both the type requirement and any additional hard constraint is satisfied and the cost incurred by violated soft constraints is minimized.
+
+/*
+%\subsubsection*{Boundaries}
+%- What kinds of problems can be modeled with this?
+
+%This model can describe any problem that can be 
+%- discrete, finite components
+%- problem of finding assignments of 
+%CANNOT:
+%- infinite domains (possible with smt)
+%- unspecified components
+%- relationships between components of different types
+
+
+

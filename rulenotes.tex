@@ -1,0 +1,70 @@
+Conditions are used to 1. filter assignments, 2. be filled out to be added as rules
+
+Rule: Require(Condition)
+
+These are written out as a language and need to be parsed
+
+By component here I mean the variables in assignments - that should probably be named better.
+
+Basic Condition: Component = Component | Component != Component | InGroup(Component, Group) | InSet(Component, Set) | Not(Condition) | Condition AND Condition | Condition OR Condition | Condition IMPLIES Condition | Condition IFF Condition | Condition XOR Condition 
+
+Numeric Condition = Numeric < Numeric | Numeric <= Numeric | Numeric > Numeric | Numeric >= Numeric | Numeric = Numeric | Numeric != Numeric
+
+Numeric := Int | Tag(Component, Tag) | NumAssigned(Condition) | MaxConsecutive(Condition) | MinConsecutive(Condition) | MaxBreak(Condition) | MinBreak(Condition)
+
+Condition, Component, Group
+
+need: determine whether a thing is a condition or component
+
+2 arguments or a list of arguments?
+
+Operator precedence:
+NOT
+AND
+OR
+IFF, IMPLIES, XOR
+--------------------
+
+Precedence climbing:
+
+
+primary := '(' expression ')' | variable  
+
+
+--------------------
+Instead of numeric:
+AtLeast(Int, Bitvector) | AtMost(Int, Bitvector) | Exactly(Int, Bitvector) 
+
+A bitvector is created with a from an ordered set of assignments and set of conditions.
+
+CreateBitvector(set, set)
+
+from assignments or component slots?
+
+---
+
+When a translator receives a rule, it will need to recursively(?) encode each part.
+
+This means that for each relevant combination of components, a sentence needs to be added to the solver.
+- build all constraints sequentially or at the same time? but how?
+- 
+
+Example:
+A1.Shift.StartTime == A2.Shift.StartTime IMPLIES A1.Nurse != A2.Nurse
+
+(A1.Shift.StartTime == A2.Shift.StartTime) IMPLIES (A1.Nurse != A2.Nurse)
+
+A1.Shift.StartTime == A2.Shift.StartTime IMPLIES A1.Nurse != A2.Nurse
+
+Implies condition: only need to add rules for which the premise is true
+This rule only uses basic logical operations. Instantiate it with all combinations of A1 and A2
+
+Nurses:
+Patrick
+Andrea
+Stefaan
+Sara
+Nguyen
+
+
+InGroup() or 

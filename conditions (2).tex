@@ -1,0 +1,154 @@
+\newcommand{\s}{\hspace{0.1cm}}
+
+\subsubsection{Basic Conditions}
+
+\begin{description}
+\item[ComponentIs(Assignment, Slot, Value)]
+
+\begin{tabular}{l l}
+	\textbf{formal} & $ x_{a\text{,} s} = c_j $ \\
+	\textbf{smt2} & $ (= \s x_{a\text{,}s} \s c_j) $
+\end{tabular}
+
+
+\item[ComponentIn(Assignment, Slot, Value...)]	
+
+\begin{tabular}{l l}
+	\textbf{formal} & \\
+	\textbf{smt2} & 
+\end{tabular}
+
+
+$$ \bigvee_{c_j\in values} s_{a_i} = c_j $$
+
+
+
+\item[SameComponent(Assignment..., Slot)]
+For each combination of two assignments $(a_i, a_j), i\neq j$, add the constraint
+$$ x_{a_i, slot} = component1 \wedge x_{a_j, slot} = component2 \implies component1 \neq component2 $$
+
+\begin{tabular}{l l}
+	\textbf{formal} & \\
+	\textbf{smt2} & 
+\end{tabular}
+
+		
+\item[InGroup(Assignment, Slot, Group)]
+This condition can be encoded by a constraint that limits the domain of the slot variable to the component variables that fulfil the group condition.
+Let $comps$ be the component variables corresponding to exactly those components   
+$$ \bigvee_{c\in allComponents} $$
+
+
+
+\item[TagEqual(assignment $a$, slot $s$, tag, value)]
+Like InGroup, this condition can be handled by passing a constraint that limits the domain of assignment variable.
+Let $comps$ be the component variables corresponding to exactly those components $c_i$ where $tag_{c_i} = value$.
+$$ \bigvee_{c\in comps} x_{a,s} = c$$
+
+\item[TagEqualAbove(assignment, slotID, tagID, value)]	
+Let $comps$ be the component variables corresponding to exactly those components $c_i$ where $tag_{c_i} \geq value$.
+$$ \bigvee_{c\in comps} x_{a,s} = c$$
+
+
+\item[TagEqualBelow(assignment, slotID, tagID, value)]	
+Let $comps$ be the component variables corresponding to exactly those components $c_i$ where $tag_{c_i} \leq value$.
+$$ \bigvee_{c\in comps} x_{a,s} = c$$
+
+
+
+\end{description}
+
+
+\subsubsection{Composite Conditions}
+
+\textit{Condition} used inside .. signifies the evaluation of the .
+
+\begin{description}
+\item[Not(Condition)]
+$$ \neg Condition $$
+
+
+
+\item[And(Condition...)]
+$$ \bigwedge_{c\in Conditions} c$$
+
+\begin{tabular}{l l}
+	\textbf{formal} & \\
+	\textbf{smt2} & 
+\end{tabular}
+
+
+\item[Or(Condition...)]
+$$ \bigvee_{c\in Conditions} c$$
+
+
+\item[Implies(Condition1, Condition2)]
+$$ Condition1 \implies Condition2 $$
+
+\begin{tabular}{l l}
+	\textbf{formal} & \\
+	\textbf{smt2} & 
+\end{tabular}
+
+
+\item[Xor(Condition1, Condition2)]
+$$ (\neg Condition1 \wedge Condition2) \vee (Condition1 \wedge \neg Condition2) $$
+
+\begin{tabular}{l l}
+	\textbf{formal} & \\
+	\textbf{smt2} & 
+\end{tabular}
+
+
+\item[Iff(Condition1, Condition2)]
+$$ (Condition1 \implies Condition2) \wedge (Condition2 \implies Condition1) $$
+
+\begin{tabular}{l l}
+	\textbf{formal} & \\
+	\textbf{smt2} & 
+\end{tabular}
+
+
+\item[MaxAssignment(Assignment..., Condition...)]
+\item[MinAssignment(Assignment..., Condition...)]
+
+Add a bitvector $bv_i$ of the length $\#Assignments$
+For each assignment $a_k$, add a rule of the form
+$$ \bigwedge_{c\in\text{Condition}} c(a_i) \implies extract(a_k) $$
+
+
+%Then add the 
+\cite{erkinger2017personnel} describe a declarative  , the number of set bits can be checked by 
+$$ bv = bv \& (bv - 1) $$
+
+If this constraint is violated, the penalty should be multiplied by the Hamming-Weight of the resulting vector.
+
+
+\item[MaxConsecutive(Assignment..., OrderedComponentSlot, Condition...)]
+\item[MinConsecutive(Assignment..., OrderedComponentSlot, Condition...)]
+
+All given assignments must have a slot of the \textit{OrderedComponentSlot} type. This type needs to be an ordered type.
+The $i$th bit of the generated bitvector corresponds to the $i$th assignment with respect to the given order. 
+Assignments that are equivalent with respect to the given order are \textit{collapsed} into a bit that is set if the conditions hold for at least one of the equivalent assignments.
+Let $Conditions(A)$ denote the conjunction of the given conditions resolved for the assignment $A$. For every given assignment, add:
+$$ Conditions(A) \implies bv.extract(i) $$
+As described in \cite{erkinger2017personnel}, the following equation will hold iff there exists no block of a length more than $max$:
+$$0 = bv \& (bv >> 1) \& (bv >> 2) \& . . . \& (bv >> max)$$
+
+The same paper describes a three-step algorithm to check minimal block length by first 
+
+\item[Simultaneous(Assignment..., OrderedComponentSlot)]
+
+Each of the given assignments needs to have a slot of the \textit{OrderedComponentSlot} type and that type needs to be ordered.
+
+
+
+\item[Consecutive(Assignment..., OrderedComponentSlot)]
+
+\item[Only(Assignment, Condition...)]
+
+
+
+\end{description}
+
+

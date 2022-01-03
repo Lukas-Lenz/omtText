@@ -1,0 +1,166 @@
+Setup:
+
+\begin{enumerate}
+
+\item Create a new \textbf{sort} for each component type
+
+\item Declare all existing components. A bidirectional mapping needs to exist
+
+\item Declare that (unless otherwise specified) components are pairwise different/unique (across all sorts?)
+
+\item For each assignment, create the assignment variables
+
+\item For each assignment
+\end{enumerate}
+
+   
+
+-----
+1. Constants for components
+2. Variables for assignment
+3. Domain constraints
+
+for each rule:
+1. what are the qualifying constants?
+2. generate a rule instance for each qualifying
+
+-------
+Common rule form:
+
+NumAssignments(Conditions) <= MAX (>= MIN)
+
+
+
+------
+NumAssignments(Conditions) - Only on selection assignments!
+how are assignments in groups counted?
+bitvector count
+BUT: conditions need to be checked on every one - 
+AND(Bitvector of each condition)
+
+All Conditions need to be available in bitvecctors
+
+
+
+-----
+
+How can assignments be checked?
+
+InGroups() - trivial
+
+
+------------------------------------------
+
+Requirements:
+
+Exclude(Groups/Tags)
+LimitTo(Groups/Tags)
+
+------------
+
+A translator has to convert
+- components
+- assignments
+- requirements
+- rules
+
+Components of a problem come simply as a container of objects.
+
+Assignments come as objects with specifications.
+
+Requirements and rules are more difficult - they have a syntax with 
+
+Rules are
+
+Rule syntax:
+
+Special:
+Components
+FORALL(set):
+MaxAssigned() <,...
+MinAssigned() <,...
+
+
+\subsubsection{Operators}
+\begin{description}
+	\item[NOT]
+	\item[AND]
+	\item[OR]
+	\item[IMPLIES]
+	For an implication, a constraint should be generated for each combination of assignments that fulfills the antecedent.
+	(This can result in a lot!)
+	\item[IFF]
+	\item[XOR]
+\end{description}
+
+\subsubsection{Functions}
+
+Functions represent a set of possibilities for assignments
+Generalizations
+
+Each rule will result in a number of
+
+
+
+
+
+------------
+
+Each component object has a unique ID. There exist a finite number of component objects of any type.
+Special domains are Int, Real, Float and Bool. Int, Float and Real are the only domains that can be infinite.
+
+---
+
+For each assignment component, a variable
+1. Determine the free variables and their domains
+
+Each non-fixed component slot in an assignment defines a number of variables. For assignment $a_i$, refer to these variables as $c_{i,1},...,c_{i,k}$
+!TODO: what about variable numbers of components?
+
+The domain of a finite-domain component is filtered using requirements.
+
+For component slots with a finite domain, the candidate values can 
+$$\bigvee_{d_{k\in domain}} c_{i,j} = d_k$$
+(Uniqueness implied by the uniqueness of components)
+
+equality, sorts, functions, or enumerating finite possibilities?
+$c_{i,j} = $
+
+For component slots with an infinite domains, ...?
+
+
+
+The component type
+The variable type used depends on component type, cardinality and use in rules.
+
+To determine the domain of the variable, first of all the 
+Requirements can limit the domain further.
+
+Each component of an assignment needs to be declared as a variable
+
+Save these in in-between variable objects.
+
+Requirements define relationships between components within a single assignment.
+For example, $InGroup(Shift, HeadNurse) => InGroup(Nurse, HeadNurse)$ is a requirement demanding that the nurse assigned to a shift is a head nurse if this is the required role.
+
+Requirements:
+- Group dependency
+- Tag dependency
+
+Formally, requirements are simply rules that only operate on components belonging to the same assignment.
+
+
+
+Rules generate formulas that define constraints over multiple assignments.
+
+A rule is structured as expressions 
+
+A function in this sense is 
+
+------
+
+for each rule:
+1. determine the applicable set
+2. for every applicable component combination: get conditions
+3. simplify
+4. add resulting constraint

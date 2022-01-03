@@ -1,0 +1,24 @@
+- component type -> sort
+
+- component -> a 
+  - tag?	-> processed by lib?
+  - group?	-> processed by lib?
+- all components are distinct!
+
+!ID needs to be a type that defined operator<<! 
+
+- assignments:
+	- optional
+	- weight
+	- component slots:
+		- type			-> slot variable
+		- optional		-> ???
+		- fixed, component -> slot variable equality
+		
+- extension: number
+
+- rule
+	- std::shared_ptr<Condition<ID>> toplevel;
+	- bool restrictedSet;
+    - std::vector<std::vector<Assignment<ID>*>> applicableSets;
+    - optional, weight
