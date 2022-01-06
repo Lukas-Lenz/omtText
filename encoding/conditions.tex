@@ -1,0 +1,97 @@
+\subsection{List of Conditions}
+	
+\def\arraystretch{1.5}
+\begin{lstlisting}
+	\hline
+	ComponentIs(AssignmentID, SlotID, Component)	
+	ComponentIn(AssignmentID, SlotID, Component...)	
+	SameComponent(Assignments..., SlotID)	
+	InGroup(assignment, slotID, groupID)	
+	TagEqual(Assignment, SlotID, TagID, Value)	
+	TagEqualAbove(assignment, slotID, tagID, value)	
+	TagEqualBelow(assignment, slotID, tagID, value)	
+	
+	Not(Condition)	
+	And(Condition...)	
+	Or(Condition...)	
+	Implies(Condition, Condition)	
+	Xor(Condition, Condition)	
+	Iff(Condition, Condition)	
+
+	MaxAssignment(Assignment..., Condition...)	
+	MinAssignment(Assignment..., Condition...)	
+	MaxConsecutive(Assignment..., OrderedComponentSlot, Condition...)	
+	MinConsecutive(Assignment..., OrderedComponentSlot, Condition...)	
+	MaxInSequence(Assignment..., OrderedComponentSlot, Condition...)	
+	MinInSequence(Assignment..., OrderedComponentSlot, Condition...)	
+
+	Simultaneous(TimedComponent...) 
+	Consecutive(TimedComponent1, TimeComponent2) 
+
+	Only(Condition...) 
+	Exclude(Condition...) 
+	Include(Condition...)
+\end{lstlisting}
+
+\begin{description}
+\item[ComponentIs(AssignmentID, SlotID, Component)]
+$component$ is assigned to the slot $SlotID$ of assignment $AssignmentID$
+
+\item[ComponentIn(AssignmentID, SlotID, Component...)]	
+one $component$ in the set of $k\geq 1$ components given is assigned to the slot $SlotID$ of assignment $AssignmentID$. The given components need to be of the type required by that slot. 
+
+\item[SameComponent(Assignments..., SlotID)]	
+The components $c_1,...,c_k$ of slot $slotID$ of the $k$ assignments given are identical. The given assignments need to have a slot $slotID$. 
+
+\item[InGroup(assignment, slotID, groupID)]	
+The component $c$ assigned to slot $slotID$ of assignment $AssignmentID$ is in group $groupID$. 
+		
+\item[TagEqual(Assignment, SlotID, TagID, Value)]	
+The tag $TagID$ of the component $c$ assigned to slot $SlotID$ of assignment $AssignmentID$ is equal to $value$. 
+	
+\item[TagEqualAbove(assignment, slotID, tagID, value)]	
+The tag $TagID$ of the component $c$ assigned to slot $SlotID$ of assignment $AssignmentID$ is equal to or greater than $value$. 
+	
+\item[TagEqualBelow(assignment, slotID, tagID, value)]		
+The tag $TagID$ of the component $c$ assigned to slot $SlotID$ of assignment $AssignmentID$ is equal to or smaller than $value$. 
+	
+\item[Not(Condition)]	
+	
+	
+\item[And(Condition...)]
+	
+
+\item[Or(Condition...)]
+	
+
+\item[Implies(Condition, Condition)]
+	
+	
+\item[Xor(Condition, Condition)]	
+	
+
+\item[Iff(Condition, Condition)]	
+	
+\item[MaxAssignment(Assignment..., Condition...)]	
+	
+\item[MinAssignment(Assignment..., Condition...)]		
+	
+\item[MaxConsecutive(Assignment..., ?Ordering?, Condition...)]	
+		
+\item[MinConsecutive(Assignment..., ?Ordering?, Condition...)]	
+		
+\item[MaxInSequence(Assignment..., ?Ordering?, Condition...)]	
+		
+\item[MinInSequence(Assignment..., ?Ordering?, Condition...)]			
+	
+\item[Simultaneous(TimedComponent...)]	
+	
+\item[Consecutive(TimedComponent1, TimeComponent2)]	
+	
+\item[Only(Condition...)]	
+	 
+\item[Exclude(Condition...)]	
+	
+\item[Include(Condition...)]	
+	 
+\end{description}

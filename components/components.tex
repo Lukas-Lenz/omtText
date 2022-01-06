@@ -1,0 +1,43 @@
+\subsection{Components}
+Let $\mathbb{T}$ denote an arbitrary time unit and $\mathbb{B}=\{True, False\}$. Every component class is derived from the same base class, determining that all components can be assumed to have a unique ID to identify it to the calling program, tags and groups.
+
+\includegraphics[width=\textwidth]{images/Components}
+
+\subsubsection*{Conditions}
+Let $c, c'$ denote component specifications and $c_i, c'_j, 1\leq i \leq cardinality_c, 1\leq j\leq cardinality_{c'}$ the corresponding component variable(s).
+General conditions:
+\begin{description}
+\item[Component.inGroup(g)]
+$$\bigwedge_{c_i} group_{i,g}$$
+
+\item[Component.inSet(set)]
+$$\bigwedge_{c_i}\bigvee_{s_j\in set} c_i = s_j$$
+
+\item[Component.tag(tag) <, <=, >, >=, =, != Int]
+Tags are similar to groups, but while groups denote a binary inclusion/exclusion relation, tags take values in $\mathbb{N}_0$ and can express attributes with varying degrees of applicability.
+
+\item[$c==c', c!=c'$]
+$$ (i = j) \wedge \bigwedge_i c_i = c'_i $$
+
+\item[Boolean combinations of conditions]
+$$\neg, \wedge, \vee \rightarrow$$
+
+\item[(Time and derived) $operator<(c1, c2)$ (and $<=, >, >=$)]
+A1.Component <, <=, >, >= A2.Component
+$$ start_1 < start_2 $$
+\item[(Time and derived) ImmediateSuccessor]
+\item[(Time and derived) ImmediatePredecessor]
+\item[(Timeslots and derived) Overlap]
+\item[(Timeslots and derived) Within]
+\end{description}
+
+
+\subsubsection{Ordering}
+Some rules require an ordering on assignments.
+On some components (e.g. time), an order can be defined quite naturally.
+
+MaxConsecutive, MinConsecutive
+Simultaneous
+
+As well as conditions:
+consecutive

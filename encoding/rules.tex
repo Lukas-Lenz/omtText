@@ -1,0 +1,39 @@
+\subsection{Rules}
+Rules define constraints between assignments.
+
+
+SameTime(A1, A2) => A1.Component("Nurse") != A2.Component("Nurse")
+
+"SameTime(A1, A2)" "=>" "A1.Component("Nurse")" "!=" "A2.Component("Nurse")"
+
+|SameTime(A1, A2)| |=>| |A1.Component("Nurse")| |!=| |A2.Component("Nurse")|
+bool			op			obj				 op			obj
+
+
+bool !=(obj, obj)
+bool =(obj, obj)
+
+bool =>(bool, bool)
+
+bool SameTime(Ass, Ass)
+
+objct Component()
+
+A rule is a function taking either 2 or n assignments, returning bool
+
+i want to save parts recursively
+
+every function part of a function needs to depend on assignments
+
+LEFT OPERATOR RIGHT
+
+Left and right can be functions or rules
+
+the rule object provides a function for 
+
+
+rule		:= expression op expression
+expression	:= function | rule
+
+Formula: wrapper class for some proper formula
+or: function to invoke for every translatable unit

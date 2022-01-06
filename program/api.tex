@@ -1,0 +1,74 @@
+\section{API}
+
+\subsection{Problem}
+\begin{minted}{cpp}
+class Problem {
+
+    public:
+
+        void print(std::ostream &) const;
+
+        //Component<ID> &newComponent(const ID &id, const ComponentType<ID> &type);
+
+        Component<ID> &newComponent(const ID &id, const ID &type);
+
+        Assignment<ID> &newAssignment(const ID &id);
+
+
+        const std::set<ID> &getAllGroups() const;
+
+        const std::set<ID> &getAllTags() const;
+
+        const std::vector<Component<ID>> &getComponents(const ID &componentType) const;
+
+        const std::map<ID, Assignment <ID>> &getAssignments() const;
+
+        const std::vector<Rule<ID>> &getRules() const;
+
+        //void addRule(const std::string &);
+
+        //void addRule(const Rule<ID> &&);
+
+        //Rule<ID> &addRule(std::unique_ptr<Condition<ID>> c);
+        void addRule(const ID& id, std::unique_ptr<Condition<ID>> c, const bool &hard, const int &weight);
+
+        std::vector<ID> getComponentTypes() const;
+        const ID addComponentType(const ID &);
+
+        void addGroup(const ID&);
+\end{minted}        
+        
+        
+\subsection{Assignment}
+\begin{minted}{cpp}
+void setFixed(const ID &name, const Component<ID>&);
+        void setFixed(const ID &name, std::vector<Component<ID>>&);
+
+        void setVariable(const ID &name, ID componentType, bool optional);
+
+        const std::map<ID, ComponentSlot<ID>> & getComponentSlots() const;
+
+        void setOptional(bool optional);
+
+        void setWeight(int weight);
+\end{minted}
+
+
+\subsection{Component}
+\begin{minted}{cpp}
+Component(const ID &id) : id{id} {}
+        //virtual const std::string componentType() const = 0;
+
+        const ID getID() const;
+
+        const std::map<ID, int> &getTags() const;
+        const std::set<ID> &getGroups() const;
+
+        void addGroup(const ID&);
+        void removeGroup(const ID&);
+
+        void setTag(const ID &, const int);
+        \end{minted}
+        
+        
+\subsection{•}

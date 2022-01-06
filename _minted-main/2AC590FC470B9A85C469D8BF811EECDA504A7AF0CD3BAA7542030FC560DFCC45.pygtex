@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Shift} \PYG{o}{:} \PYG{k}{public} \PYG{n}{Assignment} \PYG{p}{\PYGZob{}}
+
+	\PYG{n}{Expression} \PYG{n+nf}{generate}\PYG{p}{()} \PYG{k}{override}\PYG{p}{;}
+	\PYG{n}{Agent} \PYG{n}{nurse}\PYG{p}{;}
+	\PYG{k}{const} \PYG{n}{TimedTask} \PYG{n}{shift}\PYG{p}{;}
+	\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Rule}\PYG{o}{\PYGZgt{}} \PYG{n}{requirements}\PYG{p}{;}
+
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

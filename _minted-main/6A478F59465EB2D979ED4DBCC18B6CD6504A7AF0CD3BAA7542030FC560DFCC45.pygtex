@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{s}\PYG{p}{.}\PYG{n}{Require}\PYG{p}{(}\PYG{n}{shift}\PYG{p}{.}\PYG{n}{inGroup}\PYG{p}{(}\PYG{n}{HeadNurse}\PYG{p}{)} \PYG{n}{IMPLIES} \PYG{n}{nurse}\PYG{p}{.}\PYG{n}{inGroup}\PYG{p}{(}\PYG{n}{HeadNurse}\PYG{p}{));}
+\PYG{n}{s}\PYG{p}{.}\PYG{n}{Require}\PYG{p}{(}\PYG{n}{shift}\PYG{p}{.}\PYG{n}{inGroup}\PYG{p}{(}\PYG{n}{Nurse}\PYG{p}{)} \PYG{n}{IMPLIES} \PYG{n}{nurse}\PYG{p}{.}\PYG{n}{inGroup}\PYG{p}{(}\PYG{n}{Nurse}\PYG{p}{));}
+\end{Verbatim}

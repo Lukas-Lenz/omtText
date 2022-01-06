@@ -1,0 +1,89 @@
+\subsection{Model}
+
+\subsubsection*{Problem}
+
+The problem is assigning to each of $n$ assignment slots one of $m$ components. Components have a type and the component needs to fit that of the assignment slot.
+
+\begin{lstlisting}
+Problem
+
+	Tags
+	Groups
+	ComponentTypes	
+	
+	Assignments
+	  ComponentSlots
+	    ComponentType
+	    Fixed, Component
+	  Optionality
+	  Weight
+	
+	Components
+	  ComponentType
+	  Groups
+	  Tags
+	
+	Rules
+	  AssignmentSet
+	  Weight
+	  Optionality
+	  TopCondition
+	    ConditionType
+	    Subconditions
+	    Attributes
+\end{lstlisting}
+
+
+\subsubsection{Components}
+
+The basic elements of each scheduling problem are the \textbf{components}. In a university timetabling problem these could be events, rooms and teachers.
+Each component has a \textit{component type} $\type_C$ and a finite domain $\domain_C$.
+Component types can be boolean, discrete and finite numeric types (?) or custom types.
+Components are assumed to be unique: $i\neq j \implies c_i\neq c_j$.
+The domain of a component is, by default, the set of all values of that type.
+A problem specifies a set of groups and a set of tags. Each component has for each tag a corresponding value $tag_{j,i}\in\mathbb{N}_0$. For each group $group_j$ and component $c_i$, it holds that either $group_{j,i}$ or $\neg group_{j,i}$.
+As an example, a staff scheduling problem could have a component type $\type_{nurse}$ with the corresponding domain $\domain_{nurse}=\{Anna, Ben, Charlie\}$. 
+Component types are called \textit{ordered} if they define a strict weak ordering on their domain.
+
+
+\subsubsection{Assignments}
+
+\textbf{Assignments} are sub-problems of the scheduling problem, in which a number of components of different types need to be combined: for example, an assignment of a room, a time, a class and students. 
+
+Each assignment $a_i$ defines a sub-problem, in which . It consists of slots $as_{i, 1},...,as_{i,k}$ that each specify a component type $type_{i,j}$, a number of components to fill that slot $\in \{1, k\in\mathbb{N}, n\} \subset \mathbb{N}$. Additionally it specifies whether that slot is optional $optional_{i,j}$ and, if so, a weight $weight_{i,j}$.
+
+An assignment $a_i$ consists of $k\geq 1$ component slots $as_{i,1},...,as_{i,j}$.
+
+Slots can be \textit{fixed}, meaning 
+
+In a nurse rostering problem, an assignment $a_i$ could consist of a 
+$type_{i,1} = $
+Assignments are called \textit{ordered} if they have at least one component slot of an ordered component type.
+
+In the university course timetabling as presented in ITC19 \cite{muller2018university}, an assignment could consist of a single fixed \textit{course} slot, a single non-optional \textit{roomTime} slot and as many optional \textit{student} slots as the course capacity allows. 
+
+\subsubsection{Condition}
+A condition as an object holds information that a .
+A set of assignments can be evaluated over a condition. The number of assignments depend on the condition type.
+
+A \textbf{basic condition} is one that does not 
+
+A \textbf{composite condition} is a condition the evaluation of which depends on at least one other condition. Such a chain of conditions will always end with basic 
+
+
+\subsubsection{Rules}
+
+Additionally to the assignments, a problem has \textbf{rules}, specifying the relationship between individual assignments. 
+
+To apply a condition, they need to be associated with a set of assignments over which they are meant to hold, as well as information necessary for th
+
+A rule connects a chain of conditions to a set of combinations of assignment over which it should be enforced.
+
+When a rule is generated, it must be generated for each viable combination of assignments. 
+
+
+
+\subsubsection{Model}
+
+A model is an assignment of components to assignment slots such that no hard rule is violated and the sum of penalties of .
+
