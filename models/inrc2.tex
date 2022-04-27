@@ -79,15 +79,13 @@ patrick.addGroup("Nurse");
 
 There is only a single type of assignment for this problem. Since the problem is to assign nurses \textit{to} shifts, each shift will be fixed in one assignment.
 \begin{minted}{cpp}
-class Shift : public Assignment {
-
-	Expression generate() override;
-	Agent nurse;
-	const TimedTask shift;
-	std::vector<Rule> requirements; 
-
-}; 
+auto &asgn = inrc2.newAssignment(name);
+auto &time = inrc2.newComponent(name, timeType);
+time.addGroup(skill);
+asgn.setFixed(timeSlot, time);
 \end{minted}
+
+
 
 Create a TimedTask for every role required for each shift. Add the appropriate groups for role requirements, shift type and day of the week.
 Add these requirements to all Shifts $s$: 
@@ -101,9 +99,14 @@ Ideas to model the constraints as described in \cite{ceschia2019second} as rules
 \begin{description}
 \item[H1. Single assignment per day]
 
-A1.Simultaneous(A2) IMPLIES A1.Nurse != A2.Nurse, or
+Implies(SameGroup(timeslot, day), not(SameComponent(nurse)))
+Implies(SameComponent(dayslot), not(SameComponent(nurse)))
 
-A1.Shift.StartTime == A2.Shift.StartTime IMPLIES A1.Nurse != A2.Nurse
+internally:
+timeslots are fixed, so just add illegal combinations directly
+
+%A1.Simultaneous(A2) IMPLIES A1.Nurse != A2.Nurse, or
+%A1.Shift.StartTime == A2.Shift.StartTime IMPLIES A1.Nurse != A2.Nurse
 
 \item[H2. Under-staffing]
 This is already enforced by making required tasks non-optional.
@@ -112,6 +115,10 @@ This is already enforced by making required tasks non-optional.
 For every illegal combination (prec, succ):
 
 InGroup(A1.Shift, prec) AND InGroup(A2.Shift, succ) AND ImmediateSuccessor(A1.Shift, A2.Shift) IMPLIES A1.Nurse != A2.Nurse
+
+Could list out not(SameComponent())
+
+SameComponent()
 
 \item[H4. Missing required skill]
 Enforced by making required role tasks non-optional.
@@ -129,7 +136,7 @@ MinConsecutive(A1.nurse == A2.nurse AND SameType(A1, A2)) >= MIN
 
 \item[S3. Consecutive days off]
 
-MaxConsecutive(A1.nurse == A2.nurse AND SameType(A1, A2)) <= MAX
+%MaxConsecutive(A1.nurse == A2.nurse AND SameType(A1, A2)) <= MAX
 
 \item[S4. Preferences]
 
