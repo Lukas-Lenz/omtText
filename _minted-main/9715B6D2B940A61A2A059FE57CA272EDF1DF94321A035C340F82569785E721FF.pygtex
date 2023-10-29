@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setFixed}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Component}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setFixed}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Component}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}\PYGZgt{}\PYGZam{}}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setVariable}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{n}{componentType}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{optional}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ComponentSlot}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getComponentSlots}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setOptional}\PYG{p}{(}\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{optional}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setWeight}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{weight}\PYG{p}{);}
+\end{Verbatim}

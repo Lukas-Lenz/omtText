@@ -1,0 +1,15 @@
+main
+|
+|-- problem-model
+|   | The model for generalized assignment problems implemented in 
+|   |--
+|
+|-- encoding
+|   | Translating between problem model and SMT/OMT formulation
+|   |-- 
+|
+|-- problems
+|   | Example Problems solved by omtsched
+|
+|-- library
+|   | 

@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{for}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{assignment}\PYG{+w}{ }\PYG{p}{)\PYGZob{}}
-\PYG{+w}{	}\PYG{n}{itc21}\PYG{p}{.}\PYG{n}{addRule}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{Unique}\PYG{p}{(}\PYG{n}{gameType}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{);}
-\end{Verbatim}

@@ -1,0 +1,48 @@
+\def\arraystretch{1.5}
+\begin{tabular}{|p{0.5\textwidth} p{0.5\textwidth}|}
+	
+	\hline
+	\multicolumn{2}{|c|}{Basic} \\
+	\hline
+	ComponentIs(AssignmentID, SlotID, Component) &	ComponentIn(AssignmentID, SlotID, Component...) \\	
+	SameComponent(Assignments..., SlotID) & InGroup(assignment, slotID, groupID) \\
+	TagEqual(Assignment, SlotID, TagID, Value) & \\
+	TagEqualAbove(assignment, slotID, tagID, value) & TagEqualBelow(assignment, slotID, tagID, value) \\
+	
+	\hline
+	\multicolumn{2}{|c|}{Boolean} \\
+	\hline
+	Not(Condition)	& \\
+	And(Condition...)	&	Or(Condition...) \\
+	Implies(Condition, Condition)	&	Iff(Condition, Condition) \\
+	Xor(Condition, Condition)	& \\
+	
+	\hline
+	\multicolumn{2}{|c|}{Ordered} \\
+	\hline
+	Simultaneous(TimedComponent...)	& \\
+	Consecutive(TimedComponent1, TimeComponent2)	& \\
+	
+	\hline
+	\multicolumn{2}{|c|}{Counting Unordered} \\
+	\hline
+	MaxAssignment(Assignment..., Condition...)	& 	MinAssignment(Assignment..., Condition...) \\
+	
+	\hline
+	\multicolumn{2}{|c|}{Counting Ordered} \\
+	\hline
+	\multicolumn{2}{|l|}{MaxConsecutive(Assignment..., OrderedComponentSlot, Condition...)} \\
+	\multicolumn{2}{|l|}{MinConsecutive(Assignment..., OrderedComponentSlot, Condition...)}	\\
+	\multicolumn{2}{|l|}{MaxInSequence(Assignment..., OrderedComponentSlot, Condition...)}	\\
+	\multicolumn{2}{|l|}{MinInSequence(Assignment..., OrderedComponentSlot, Condition...)}	\\
+	
+	\hline
+	\multicolumn{2}{|c|}{???} \\
+	\hline
+	Only(Condition...) & \\
+	Exclude(Condition...)	&	Include(Condition...) \\
+	
+	\hline
+
+\end{tabular}
+\def\arraystretch{1}

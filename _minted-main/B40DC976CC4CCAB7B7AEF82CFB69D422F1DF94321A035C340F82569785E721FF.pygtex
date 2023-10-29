@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Component}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{id}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{\PYGZob{}}\PYG{n}{id}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{+w}{        }\PYG{c+c1}{//virtual const std::string componentType() const = 0;}
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{n}{getID}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{getTags}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{getGroups}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{addGroup}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{removeGroup}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setTag}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{);}
+\end{Verbatim}

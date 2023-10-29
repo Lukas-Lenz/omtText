@@ -1,38 +1,5 @@
-\subsection{List of Conditions}
+\subsection{Conditions}
 	
-\def\arraystretch{1.5}
-\begin{lstlisting}
-	\hline
-	ComponentIs(AssignmentID, SlotID, Component)	
-	ComponentIn(AssignmentID, SlotID, Component...)	
-	SameComponent(Assignments..., SlotID)	
-	InGroup(assignment, slotID, groupID)	
-	TagEqual(Assignment, SlotID, TagID, Value)	
-	TagEqualAbove(assignment, slotID, tagID, value)	
-	TagEqualBelow(assignment, slotID, tagID, value)	
-	
-	Not(Condition)	
-	And(Condition...)	
-	Or(Condition...)	
-	Implies(Condition, Condition)	
-	Xor(Condition, Condition)	
-	Iff(Condition, Condition)	
-
-	MaxAssignment(Assignment..., Condition...)	
-	MinAssignment(Assignment..., Condition...)	
-	MaxConsecutive(Assignment..., OrderedComponentSlot, Condition...)	
-	MinConsecutive(Assignment..., OrderedComponentSlot, Condition...)	
-	MaxInSequence(Assignment..., OrderedComponentSlot, Condition...)	
-	MinInSequence(Assignment..., OrderedComponentSlot, Condition...)	
-
-	Simultaneous(TimedComponent...) 
-	Consecutive(TimedComponent1, TimeComponent2) 
-
-	Only(Condition...) 
-	Exclude(Condition...) 
-	Include(Condition...)
-\end{lstlisting}
-
 \begin{description}
 \item[ComponentIs(AssignmentID, SlotID, Component)]
 $component$ is assigned to the slot $SlotID$ of assignment $AssignmentID$

@@ -1,0 +1,36 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Problem}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{k}{public}\PYG{o}{:}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{print}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{c+c1}{//Component\PYGZlt{}ID\PYGZgt{} \PYGZam{}newComponent(const ID \PYGZam{}id, const ComponentType\PYGZlt{}ID\PYGZgt{} \PYGZam{}type);}
+
+\PYG{+w}{        }\PYG{n}{Component}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{newComponent}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{id}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{type}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assignment}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{newAssignment}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{id}\PYG{p}{);}
+
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{getAllGroups}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{getAllTags}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Component}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{getComponents}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{componentType}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Assignment}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{getAssignments}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Rule}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{getRules}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{c+c1}{//void addRule(const std::string \PYGZam{});}
+
+\PYG{+w}{        }\PYG{c+c1}{//void addRule(const Rule\PYGZlt{}ID\PYGZgt{} \PYGZam{}\PYGZam{});}
+
+\PYG{+w}{        }\PYG{c+c1}{//Rule\PYGZlt{}ID\PYGZgt{} \PYGZam{}addRule(std::unique\PYGZus{}ptr\PYGZlt{}Condition\PYGZlt{}ID\PYGZgt{}\PYGZgt{} c);}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{addRule}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{unique\PYGZus{}ptr}\PYG{o}{\PYGZlt{}}\PYG{n}{Condition}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{hard}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{weight}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ID}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{getComponentTypes}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{n+nf}{addComponentType}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{addGroup}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ID}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\end{Verbatim}

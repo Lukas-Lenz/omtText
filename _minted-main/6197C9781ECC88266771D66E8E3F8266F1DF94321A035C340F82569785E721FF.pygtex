@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{auto}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{asgn}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{inrc2}\PYG{p}{.}\PYG{n}{newAssignment}\PYG{p}{(}\PYG{n}{name}\PYG{p}{);}
+\PYG{k}{auto}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{time}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{inrc2}\PYG{p}{.}\PYG{n}{newComponent}\PYG{p}{(}\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{timeType}\PYG{p}{);}
+\PYG{n}{time}\PYG{p}{.}\PYG{n}{addGroup}\PYG{p}{(}\PYG{n}{skill}\PYG{p}{);}
+\PYG{n}{asgn}\PYG{p}{.}\PYG{n}{setFixed}\PYG{p}{(}\PYG{n}{timeSlot}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{time}\PYG{p}{);}
+\end{Verbatim}

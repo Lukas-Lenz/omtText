@@ -1,5 +1,5 @@
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{Nurse} \PYG{n+nf}{patrick}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Patrick\PYGZdq{}}\PYG{p}{);}
+\PYG{n}{Nurse}\PYG{+w}{ }\PYG{n}{patrick}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Patrick\PYGZdq{}}\PYG{p}{);}
 \PYG{n}{patrick}\PYG{p}{.}\PYG{n}{addGroup}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}HeadNurse\PYGZdq{}}\PYG{p}{);}
 \PYG{n}{patrick}\PYG{p}{.}\PYG{n}{addGroup}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Nurse\PYGZdq{}}\PYG{p}{);}
 \end{Verbatim}

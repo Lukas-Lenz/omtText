@@ -3,15 +3,15 @@ from decision procedures:
 6.1.1 Syntax
 The subset of bit-vector arithmetic that we consider is deﬁned by the following grammar: 
 
-formula : formula ∧formula |¬formula | (formula ) | atom 
+%formula : formula ∧formula |¬formula | (formula ) | atom 
 
 atom : term rel term | Boolean-Identiﬁer | term[constant ] 
 
 rel : < | = 
 
-term : term op term | identiﬁer | ∼ term | constant | atom?term:term | term[constant : constant ] | ext(term ) 
+%term : term op term | identiﬁer | ∼ term | constant | atom?term:term | %term[constant : constant ] | ext(term ) 
 
-op : + | − | · | / | << | >> | & | | | ⊕ |◦ 
+%op : + | − | · | / | << | >> | & | | | ⊕ |◦ 
 
 ---
 

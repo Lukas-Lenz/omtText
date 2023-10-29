@@ -12,9 +12,9 @@ inGroup()
 or( any("A", not(inGroup(haid1))), any("B", not(inGroup(haid2))) , any("") )
 
 
-any(A, inGroup1) & any(B, inGroup2)
+any(A, inGroup1) \& any(B, inGroup2)
 
-inGroup(A, Group1) & inGroup(B, Group2) => 
+inGroup(A, Group1) \& inGroup(B, Group2) => 
 
 --
 
@@ -25,4 +25,4 @@ any(name, condition)
 
 for(a, b : asgnComb)
 
-  add( a.ingroup() & b.ingroup() )
+  add( a.ingroup() \& b.ingroup() )
